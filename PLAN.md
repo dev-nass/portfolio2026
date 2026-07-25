@@ -27,30 +27,26 @@ A terminal-styled portfolio website built with Vue 3, featuring an ASCII art por
 ```
 portfolio/
 ├── public/
-│   └── portrait.jpg              # Placeholder portrait image
+│   └── images/
+│       ├── ascii-art.png          # ASCII art portrait
+│       └── portrait.jpg           # Original portrait photo
 ├── src/
 │   ├── assets/
 │   │   └── main.css              # Tailwind imports + custom theme + fonts
 │   ├── components/
 │   │   ├── layout/
-│   │   │   ├── NavBar.vue        # Terminal-style top bar (file tabs)
+│   │   │   ├── NavBar.vue        # Terminal-style top bar (scroll-to links)
 │   │   │   └── Footer.vue        # Terminal-style footer
-│   │   ├── ui/                   # shadcn-vue generated components
-│   │   │   └── ...
-│   │   ├── AsciiPortrait.vue     # Canvas-based ASCII art renderer
+│   │   ├── sections/
+│   │   │   ├── HeroSection.vue   # Hero with ASCII art + typing intro
+│   │   │   ├── ProjectsSection.vue
+│   │   │   ├── SkillsSection.vue
+│   │   │   ├── ExperienceSection.vue
+│   │   │   └── ContactSection.vue
 │   │   ├── TypeWriter.vue        # Typing animation component
 │   │   ├── GlitchText.vue        # Glitch effect for text
 │   │   ├── TerminalWindow.vue    # Reusable terminal frame (title bar + slot)
-│   │   ├── ProjectCard.vue       # Project card with terminal styling
-│   │   └── SkillTable.vue        # htop-style skills table
-│   ├── views/
-│   │   ├── HomeView.vue          # Hero + About section
-│   │   ├── ProjectsView.vue      # Project showcase
-│   │   ├── SkillsView.vue        # Technical skills
-│   │   ├── ExperienceView.vue    # Work experience timeline
-│   │   └── ContactView.vue       # Contact form
-│   ├── composables/
-│   │   └── useAscii.ts           # ASCII rendering logic
+│   │   └── ProjectCard.vue       # Project card with terminal styling
 │   ├── router/
 │   │   └── index.ts
 │   ├── App.vue
@@ -62,6 +58,20 @@ portfolio/
 ├── tsconfig.app.json
 └── tailwind.config.ts
 ```
+
+---
+
+## Design: One-Page Scroll
+
+The portfolio is a **single-page scroll** site. There are no separate routes.
+The navbar links scroll to each section. The user's only action is scrolling down.
+
+Sections (in order):
+1. `#hero` — ASCII art portrait + typing intro
+2. `#projects` — project cards grid
+3. `#skills` — htop-style skills table
+4. `#experience` — git log timeline
+5. `#contact` — terminal input form
 
 ---
 

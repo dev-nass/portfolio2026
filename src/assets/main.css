@@ -113,4 +113,12 @@
       transparent 2px
     );
   }
+
+  .project-card {
+    transition: transform 0.2s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
 }

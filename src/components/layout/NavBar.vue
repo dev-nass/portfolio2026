@@ -1,47 +1,47 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
 import { Terminal, Menu, X } from 'lucide-vue-next'
 
-const route = useRoute()
 const mobileOpen = ref(false)
 
 const links = [
-  { path: '/', label: 'home', display: '~' },
-  { path: '/projects', label: 'projects', display: 'projects' },
-  { path: '/skills', label: 'skills', display: 'skills' },
-  { path: '/experience', label: 'experience', display: 'exp' },
-  { path: '/contact', label: 'contact', display: 'contact' },
+  { href: '#hero', label: '~' },
+  { href: '#projects', label: 'projects' },
+  { href: '#skills', label: 'skills' },
+  { href: '#experience', label: 'exp' },
+  { href: '#contact', label: 'contact' },
 ]
 
-function isActive(path: string) {
-  return route.path === path
+function scrollTo(href: string) {
+  mobileOpen.value = false
+  const el = document.querySelector(href)
+  if (el) el.scrollIntoView({ behavior: 'smooth' })
 }
 </script>
 
 <template>
   <nav class="sticky top-0 z-40 border-b border-border bg-bg/80 backdrop-blur-md">
     <div class="mx-auto flex h-12 max-w-5xl items-center justify-between px-4">
-      <RouterLink to="/" class="flex items-center gap-2 text-green hover:glow-green transition-all">
+      <a
+        href="#hero"
+        class="flex items-center gap-2 text-green transition-all hover:glow-green"
+        @click.prevent="scrollTo('#hero')"
+      >
         <Terminal :size="16" />
         <span class="text-sm font-bold">~/portfolio</span>
-      </RouterLink>
+      </a>
 
       <div class="hidden items-center gap-1 md:flex">
-        <RouterLink
+        <a
           v-for="link in links"
-          :key="link.path"
-          :to="link.path"
+          :key="link.href"
+          :href="link.href"
           class="group relative px-3 py-1.5 text-sm text-text-muted transition-colors hover:text-text"
-          :class="{ 'text-green': isActive(link.path) }"
+          @click.prevent="scrollTo(link.href)"
         >
           <span class="text-text-muted group-hover:text-green">$</span>
-          {{ link.display }}
-          <span
-            v-if="isActive(link.path)"
-            class="absolute bottom-0 left-3 right-3 h-px bg-green"
-          />
-        </RouterLink>
+          {{ link.label }}
+        </a>
       </div>
 
       <button
@@ -65,16 +65,15 @@ function isActive(path: string) {
         v-if="mobileOpen"
         class="border-t border-border bg-surface px-4 pb-4 pt-2 md:hidden"
       >
-        <RouterLink
+        <a
           v-for="link in links"
-          :key="link.path"
-          :to="link.path"
+          :key="link.href"
+          :href="link.href"
           class="block py-2 text-sm text-text-muted transition-colors hover:text-green"
-          :class="{ 'text-green': isActive(link.path) }"
-          @click="mobileOpen = false"
+          @click.prevent="scrollTo(link.href)"
         >
-          <span class="text-text-muted">$</span> {{ link.display }}
-        </RouterLink>
+          <span class="text-text-muted">$</span> {{ link.label }}
+        </a>
       </div>
     </Transition>
   </nav>
