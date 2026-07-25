@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0a0a;
+  --color-surface: #111111;
+  --color-surface-light: #1a1a1a;
+  --color-border: #1e1e1e;
+  --color-border-light: #2a2a2a;
+  --color-text: #e0e0e0;
+  --color-text-muted: #666666;
+  --color-green: #00ff41;
+  --color-green-dim: #00cc33;
+  --color-amber: #ffb000;
+  --color-cyan: #00d4ff;
+  --color-red: #ff3333;
+  --color-purple: #bd93f9;
+
+  --font-mono: 'JetBrains Mono', 'Space Mono', 'IBM Plex Mono', monospace;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-mono);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-green);
+    color: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-light);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
+}
+
+@layer components {
+  .glow-green {
+    text-shadow: 0 0 10px var(--color-green), 0 0 20px rgba(0, 255, 65, 0.3);
+  }
+
+  .glow-amber {
+    text-shadow: 0 0 10px var(--color-amber), 0 0 20px rgba(255, 176, 0, 0.3);
+  }
+
+  .glow-cyan {
+    text-shadow: 0 0 10px var(--color-cyan), 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+
+  .terminal-prompt::before {
+    content: '$ ';
+    color: var(--color-green);
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+    100% { transform: translate(0); }
+  }
+
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100vh); }
+  }
+
+  .scanline-overlay {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(0, 255, 65, 0.03),
+      rgba(0, 255, 65, 0.03) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  }
+}
