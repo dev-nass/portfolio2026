@@ -8,8 +8,8 @@ import TerminalWindow from "@/components/TerminalWindow.vue";
 const name = "Jonas Vince Macawile";
 const title = "Full-Stack Developer";
 const about = `I build things for the web.
-Currently focused on Vue, TypeScript,
-and creating elegant interfaces.`;
+Currently focused on providing the solution for business owners
+and apply my knowledge on tech alongisde it.`;
 
 const stage = ref(0);
 const isGlitching = ref(false);
