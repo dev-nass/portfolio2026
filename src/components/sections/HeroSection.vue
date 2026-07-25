@@ -33,7 +33,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <section id="hero" class="mx-auto max-w-5xl px-4 py-12 md:py-20 lg:py-28">
+    <section id="hero" class="mx-auto max-w-5xl py-12 md:px-4 md:py-20 lg:px-4 lg:py-28">
         <div
             class="flex flex-col items-center gap-8 md:flex-row md:items-stretch md:gap-8 lg:gap-12"
         >
