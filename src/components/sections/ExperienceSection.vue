@@ -40,7 +40,7 @@ const experiences = [
             <span class="text-green">$</span>
             <span class="text-text-muted"> git log --oneline --</span
             ><span class="text-green font-bold">experience</span>
-            <div class="mt-1 text-amber">
+            <div class="mt-1 text-peach">
                 <TypeWriter
                     text="commit 3 entries — sorted by date"
                     :speed="20"
@@ -62,14 +62,14 @@ const experiences = [
                     class="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs"
                 >
                     <span class="text-green">commit</span>
-                    <span class="text-purple">{{ exp.hash }}</span>
+                    <span class="text-mauve">{{ exp.hash }}</span>
                     <span class="text-text-muted">(HEAD)</span>
                 </div>
                 <div class="mb-1 text-xs text-text-muted">
-                    Author: <span class="text-cyan">{{ exp.company }}</span>
+                    Author: <span class="text-teal">{{ exp.company }}</span>
                 </div>
                 <div class="mb-3 text-xs text-text-muted">
-                    Date: <span class="text-amber">{{ exp.date }}</span>
+                    Date: <span class="text-peach">{{ exp.date }}</span>
                 </div>
 
                 <!-- Role -->

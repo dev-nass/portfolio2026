@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Terminal, Menu, X } from 'lucide-vue-next'
+import ThemeToggle from '@/components/ThemeToggle.vue'
 
 const mobileOpen = ref(false)
 
@@ -28,7 +29,7 @@ function scrollTo(href: string) {
         @click.prevent="scrollTo('#hero')"
       >
         <Terminal :size="16" />
-        <span class="text-sm font-bold">~/portfolio</span>
+        <span class="text-sm font-bold">~/dev-nass</span>
       </a>
 
       <div class="hidden items-center gap-1 md:flex">
@@ -42,15 +43,19 @@ function scrollTo(href: string) {
           <span class="text-text-muted group-hover:text-green">$</span>
           {{ link.label }}
         </a>
+        <ThemeToggle />
       </div>
 
-      <button
-        class="text-text-muted hover:text-green md:hidden"
-        @click="mobileOpen = !mobileOpen"
-      >
-        <Menu v-if="!mobileOpen" :size="20" />
-        <X v-else :size="20" />
-      </button>
+      <div class="flex items-center gap-2 md:hidden">
+        <ThemeToggle />
+        <button
+          class="text-text-muted hover:text-green"
+          @click="mobileOpen = !mobileOpen"
+        >
+          <Menu v-if="!mobileOpen" :size="20" />
+          <X v-else :size="20" />
+        </button>
+      </div>
     </div>
 
     <Transition

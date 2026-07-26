@@ -49,7 +49,7 @@ const projects = [
             <span class="text-green">$</span>
             <span class="text-text-muted"> ls ~/</span
             ><span class="text-green font-bold">projects</span>
-            <div class="mt-1 text-amber">
+            <div class="mt-1 text-peach">
                 <TypeWriter
                     text="drwxr-xr-x  4 user  staff  — showing 4 projects"
                     :speed="25"

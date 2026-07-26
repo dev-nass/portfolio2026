@@ -1,21 +1,82 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
-  --color-bg: #0a0a0a;
-  --color-surface: #111111;
-  --color-surface-light: #1a1a1a;
-  --color-border: #1e1e1e;
-  --color-border-light: #2a2a2a;
-  --color-text: #e0e0e0;
-  --color-text-muted: #666666;
-  --color-green: #00ff41;
-  --color-green-dim: #00cc33;
-  --color-amber: #ffb000;
-  --color-cyan: #00d4ff;
-  --color-red: #ff3333;
-  --color-purple: #bd93f9;
+  /* Catppuccin Latte (Light) — base values */
+  --color-rosewater: #dc8a78;
+  --color-flamingo: #dd7878;
+  --color-pink: #ea76cb;
+  --color-mauve: #8839ef;
+  --color-red: #d20f39;
+  --color-maroon: #e64553;
+  --color-peach: #fe640b;
+  --color-yellow: #df8e1d;
+  --color-green: #40a02b;
+  --color-teal: #179299;
+  --color-sky: #04a5e5;
+  --color-sapphire: #209fb5;
+  --color-blue: #1e66f5;
+  --color-lavender: #7287fd;
+
+  --color-text: #4c4f69;
+  --color-subtext1: #5c5f77;
+  --color-subtext0: #6c6f85;
+  --color-overlay2: #7c7f93;
+  --color-overlay1: #8c8fa1;
+  --color-overlay0: #9ca0b0;
+  --color-surface2: #acb0be;
+  --color-surface1: #bcc0cc;
+  --color-surface0: #ccd0da;
+  --color-base: #eff1f5;
+  --color-mantle: #e6e9ef;
+  --color-crust: #dce0e8;
+
+  --color-bg: #eff1f5;
+  --color-surface: #e6e9ef;
+  --color-surface-light: #dce0e8;
+  --color-border: #ccd0da;
+  --color-border-light: #bcc0cc;
+  --color-text-muted: #9ca0b0;
 
   --font-mono: 'JetBrains Mono', 'Space Mono', 'IBM Plex Mono', monospace;
+}
+
+:root.dark {
+  --color-rosewater: #f4dbd6;
+  --color-flamingo: #f0c6c6;
+  --color-pink: #f5bde6;
+  --color-mauve: #c6a0f6;
+  --color-red: #ed8796;
+  --color-maroon: #ee99a0;
+  --color-peach: #f5a97f;
+  --color-yellow: #eed49f;
+  --color-green: #a6da95;
+  --color-teal: #8bd5ca;
+  --color-sky: #91d7e3;
+  --color-sapphire: #7dc4e4;
+  --color-blue: #8aadf4;
+  --color-lavender: #b7bdf8;
+
+  --color-text: #cad3f5;
+  --color-subtext1: #b8c0e0;
+  --color-subtext0: #a5adcb;
+  --color-overlay2: #939ab7;
+  --color-overlay1: #8087a2;
+  --color-overlay0: #6e738d;
+  --color-surface2: #5b6078;
+  --color-surface1: #494d64;
+  --color-surface0: #363a4f;
+  --color-base: #24273a;
+  --color-mantle: #1e2030;
+  --color-crust: #181926;
+
+  --color-bg: #24273a;
+  --color-surface: #1e2030;
+  --color-surface-light: #363a4f;
+  --color-border: #494d64;
+  --color-border-light: #5b6078;
+  --color-text-muted: #6e738d;
 }
 
 @layer base {
@@ -37,8 +98,8 @@
   }
 
   ::selection {
-    background-color: var(--color-green);
-    color: var(--color-bg);
+    background-color: var(--color-mauve);
+    color: var(--color-crust);
   }
 
   ::-webkit-scrollbar {
@@ -50,26 +111,38 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-border-light);
+    background: var(--color-surface2);
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-text-muted);
+    background: var(--color-overlay0);
   }
 }
 
 @layer components {
   .glow-green {
-    text-shadow: 0 0 10px var(--color-green), 0 0 20px rgba(0, 255, 65, 0.3);
+    text-shadow: 0 0 10px var(--color-green), 0 0 20px color-mix(in srgb, var(--color-green) 30%, transparent);
   }
 
-  .glow-amber {
-    text-shadow: 0 0 10px var(--color-amber), 0 0 20px rgba(255, 176, 0, 0.3);
+  .glow-peach {
+    text-shadow: 0 0 10px var(--color-peach), 0 0 20px color-mix(in srgb, var(--color-peach) 30%, transparent);
   }
 
-  .glow-cyan {
-    text-shadow: 0 0 10px var(--color-cyan), 0 0 20px rgba(0, 212, 255, 0.3);
+  .glow-teal {
+    text-shadow: 0 0 10px var(--color-teal), 0 0 20px color-mix(in srgb, var(--color-teal) 30%, transparent);
+  }
+
+  .glow-mauve {
+    text-shadow: 0 0 10px var(--color-mauve), 0 0 20px color-mix(in srgb, var(--color-mauve) 30%, transparent);
+  }
+
+  .glow-blue {
+    text-shadow: 0 0 10px var(--color-blue), 0 0 20px color-mix(in srgb, var(--color-blue) 30%, transparent);
+  }
+
+  .glow-lavender {
+    text-shadow: 0 0 10px var(--color-lavender), 0 0 20px color-mix(in srgb, var(--color-lavender) 30%, transparent);
   }
 
   .terminal-prompt::before {
@@ -107,8 +180,8 @@
     z-index: 50;
     background: repeating-linear-gradient(
       0deg,
-      rgba(0, 255, 65, 0.03),
-      rgba(0, 255, 65, 0.03) 1px,
+      color-mix(in srgb, var(--color-mauve) 3%, transparent),
+      color-mix(in srgb, var(--color-mauve) 3%, transparent) 1px,
       transparent 1px,
       transparent 2px
     );

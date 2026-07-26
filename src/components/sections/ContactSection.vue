@@ -22,7 +22,7 @@ function handleSubmit() {
     <div class="mb-10">
       <span class="text-green">$</span>
       <span class="text-text-muted"> cat ~/</span><span class="text-green font-bold">contact</span><span class="text-text-muted">.txt</span>
-      <div class="mt-1 text-amber">
+      <div class="mt-1 text-peach">
         <TypeWriter
           text="Fill in the fields below to send a message"
           :speed="20"
@@ -77,7 +77,7 @@ function handleSubmit() {
 
           <!-- Submit -->
           <button
-            class="inline-flex items-center gap-2 rounded border border-green/30 bg-green/10 px-4 py-2 text-sm text-green transition-all hover:bg-green/20 hover:shadow-[0_0_10px_rgba(0,255,65,0.15)]"
+            class="inline-flex items-center gap-2 rounded border border-green/30 bg-green/10 px-4 py-2 text-sm text-green transition-all hover:bg-green/20 hover:shadow-[0_0_10px_var(--color-green)]"
             @click="handleSubmit"
           >
             <Send :size="14" />
@@ -112,14 +112,14 @@ function handleSubmit() {
               href="https://linkedin.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-3 text-sm text-text-muted transition-colors hover:text-cyan"
+              class="flex items-center gap-3 text-sm text-text-muted transition-colors hover:text-teal"
             >
               <Linkedin :size="16" />
               <span>$ open linkedin</span>
             </a>
             <a
               href="mailto:hello@example.com"
-              class="flex items-center gap-3 text-sm text-text-muted transition-colors hover:text-amber"
+              class="flex items-center gap-3 text-sm text-text-muted transition-colors hover:text-peach"
             >
               <Mail :size="16" />
               <span>$ mail hello@example.com</span>

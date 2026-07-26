@@ -20,7 +20,7 @@ const categories = [
     },
     {
         label: "Frameworks",
-        color: "cyan",
+        color: "teal",
         skills: [
             { name: "Vue 3", status: "active", year: 2025 },
             { name: "Laravel 13", status: "active", year: 2025 },
@@ -30,7 +30,7 @@ const categories = [
     },
     {
         label: "Tools",
-        color: "amber",
+        color: "peach",
         skills: [
             { name: "Vim & Neovim", status: "active", year: 2025 },
             { name: "Linux", status: "active", year: 2025 },
@@ -57,7 +57,7 @@ function statusLabel(status: string) {
             <span class="text-green">$</span>
             <span class="text-text-muted"> htop --filter=</span
             ><span class="text-green font-bold">skills</span>
-            <div class="mt-1 text-amber">
+            <div class="mt-1 text-peach">
                 <TypeWriter
                     text="PID   USER     PRI  NI  VIRT  RES  SHR  S  CPU%  MEM%  COMMAND"
                     :speed="15"

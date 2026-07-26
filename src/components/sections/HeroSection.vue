@@ -4,6 +4,7 @@ import { Github, Linkedin, FileText } from "lucide-vue-next";
 import TypeWriter from "@/components/TypeWriter.vue";
 import GlitchText from "@/components/GlitchText.vue";
 import TerminalWindow from "@/components/TerminalWindow.vue";
+import { useTheme } from "@/composables/useTheme";
 
 const name = "Jonas Vince Macawile";
 const title = "Full-Stack Developer";
@@ -11,6 +12,7 @@ const about = `I build things for the web. Currently a
 4th year Information Systems student with a focus on
 turning business challenges into clean tech solutions.`;
 
+const { isDark } = useTheme();
 const stage = ref(0);
 const isGlitching = ref(false);
 let glitchTimer: ReturnType<typeof setInterval> | null = null;
@@ -37,19 +39,25 @@ onUnmounted(() => {
         <div
             class="flex flex-col items-center gap-8 md:flex-row md:items-stretch md:gap-8 lg:gap-12"
         >
-            <!-- ASCII Art Image — hidden on mobile, shown on md+ -->
+            <!-- Portrait Image — hidden on mobile, shown on md+ -->
             <div class="hidden w-[30%] flex-shrink-0 md:block">
                 <div
-                    class="ascii-portrait relative h-full"
+                    class="portrait-container relative h-full"
                     :class="{ 'is-glitching': isGlitching }"
                 >
+                    <!-- Dark mode image (normal) -->
                     <img
-                        src="/images/ascii-art.png"
-                        alt="ASCII art portrait"
-                        class="block h-full w-full rounded border border-border/50 object-cover"
-                        :style="{
-                            filter: 'sepia(1) hue-rotate(80deg) saturate(3) brightness(0.8)',
-                        }"
+                        src="/images/portrait.png"
+                        alt="Portrait"
+                        class="portrait-img block h-full w-full rounded border border-border/50 object-cover transition-opacity duration-400"
+                        :class="isDark ? 'opacity-100' : 'opacity-0'"
+                    />
+                    <!-- Light mode image (glasses) -->
+                    <img
+                        src="/images/portrait-glasses.png"
+                        alt="Portrait with glasses"
+                        class="portrait-img absolute inset-0 block h-full w-full rounded border border-border/50 object-cover transition-opacity duration-400"
+                        :class="isDark ? 'opacity-0' : 'opacity-100'"
                     />
                     <div
                         class="pointer-events-none absolute inset-0 rounded border border-green/10"
@@ -77,7 +85,7 @@ onUnmounted(() => {
                         <div>
                             <span class="text-green">$</span>
                             <span class="text-text-muted"> echo $ROLE</span>
-                            <div class="mt-1 pl-2 text-amber">
+                            <div class="mt-1 pl-2 text-peach">
                                 <TypeWriter
                                     :text="title"
                                     :speed="40"
@@ -121,14 +129,14 @@ onUnmounted(() => {
                                 href="https://www.linkedin.com/in/jonas-vince-macawile-480515371/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="inline-flex items-center gap-1.5 text-text-muted transition-colors hover:text-cyan"
+                                class="inline-flex items-center gap-1.5 text-text-muted transition-colors hover:text-teal"
                             >
                                 <Linkedin :size="14" />
                                 <span class="text-xs">$ open linkedin</span>
                             </a>
                             <a
                                 href="#"
-                                class="inline-flex items-center gap-1.5 text-text-muted transition-colors hover:text-amber"
+                                class="inline-flex items-center gap-1.5 text-text-muted transition-colors hover:text-peach"
                             >
                                 <FileText :size="14" />
                                 <span class="text-xs">$ cat resume.pdf</span>
@@ -140,3 +148,13 @@ onUnmounted(() => {
         </div>
     </section>
 </template>
+
+<style scoped>
+.portrait-container {
+    position: relative;
+}
+
+.portrait-img {
+    transition: opacity 0.4s ease;
+}
+</style>

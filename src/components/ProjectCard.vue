@@ -11,10 +11,10 @@ defineProps<{
 </script>
 
 <template>
-  <div class="project-card group overflow-hidden rounded-lg border border-border bg-surface transition-all duration-300 hover:border-green/30 hover:shadow-[0_0_15px_rgba(0,255,65,0.1)]">
+  <div class="project-card group overflow-hidden rounded-lg border border-border bg-surface transition-all duration-300 hover:border-green/30 hover:shadow-[0_0_15px_var(--color-green)]">
     <div class="flex items-center gap-2 border-b border-border bg-surface-light px-4 py-2.5">
       <span class="h-3 w-3 rounded-full bg-red/80" />
-      <span class="h-3 w-3 rounded-full bg-amber/80" />
+      <span class="h-3 w-3 rounded-full bg-peach/80" />
       <span class="h-3 w-3 rounded-full bg-green/80" />
       <span class="ml-2 text-xs text-text-muted">{{ name }} — ~/projects</span>
     </div>
@@ -48,7 +48,7 @@ defineProps<{
           :href="live"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-xs text-text-muted transition-colors hover:text-cyan"
+          class="inline-flex items-center gap-1 text-xs text-text-muted transition-colors hover:text-teal"
         >
           <ExternalLink :size="12" />
           $ open live

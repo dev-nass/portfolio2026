@@ -6,6 +6,6 @@
 
 <style scoped>
 .glow-line {
-  box-shadow: 0 0 8px rgba(0, 255, 65, 0.4), 0 0 20px rgba(0, 255, 65, 0.15);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--color-green) 40%, transparent), 0 0 20px color-mix(in srgb, var(--color-green) 15%, transparent);
 }
 </style>
