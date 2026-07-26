@@ -9,39 +9,43 @@ const categories = [
         label: "Languages",
         color: "green",
         skills: [
-            { name: "TypeScript", status: "learning", year: 2026 },
-            { name: "Lua", status: "familiar", year: 2025 },
-            { name: "JavaScript", status: "proficient", year: 2024 },
-            { name: "PHP", status: "proficient", year: 2024 },
-            { name: "MySQL", status: "proficient", year: 2023 },
-            { name: "Java", status: "familiar", year: 2023 },
-            { name: "C++", status: "familiar", year: 2023 },
+            { name: "TypeScript", status: "active", year: 2026 },
+            { name: "Lua", status: "idle", year: 2025 },
+            { name: "JavaScript", status: "active", year: 2024 },
+            { name: "PHP", status: "active", year: 2024 },
+            { name: "MySQL", status: "active", year: 2023 },
+            { name: "Java", status: "idle", year: 2023 },
+            { name: "C++", status: "idle", year: 2023 },
         ],
     },
     {
         label: "Frameworks",
         color: "cyan",
         skills: [
-            { name: "Vue 3", status: "proficient", year: 2025 },
-            { name: "Laravel 13", status: "proficient", year: 2025 },
-            { name: "Tailwind CSS", status: "proficient", year: 2025 },
-            { name: "Boostrap CSS", status: "proficient", year: 2023 },
+            { name: "Vue 3", status: "active", year: 2025 },
+            { name: "Laravel 13", status: "active", year: 2025 },
+            { name: "Tailwind CSS", status: "active", year: 2025 },
+            { name: "Bootstrap CSS", status: "idle", year: 2023 },
         ],
     },
     {
         label: "Tools",
         color: "amber",
         skills: [
-            { name: "Vim & Neovim", status: "proficient", year: 2025 },
-            { name: "Linux", status: "proficient", year: 2025 },
-            { name: "Git & GitHub", status: "proficient", year: 2023 },
+            { name: "Vim & Neovim", status: "active", year: 2025 },
+            { name: "Linux", status: "active", year: 2025 },
+            { name: "Git & GitHub", status: "active", year: 2023 },
         ],
     },
 ];
 
 function statusColor(status: string) {
-    if (status === "proficient") return "text-green";
-    if (status === "familiar") return "text-amber";
+    if (status === "active") return "bg-green";
+    return "bg-text-muted";
+}
+
+function statusLabel(status: string) {
+    if (status === "active") return "text-green";
     return "text-text-muted";
 }
 </script>
@@ -63,58 +67,43 @@ function statusColor(status: string) {
             </div>
         </div>
 
-        <!-- Skills Table -->
-        <div
-            v-if="headerDone"
-            class="overflow-x-auto rounded-lg border border-border bg-surface"
-        >
-            <table class="w-full min-w-[520px] font-mono text-sm">
-                <thead>
-                    <tr
-                        class="border-b border-border bg-surface-light text-left text-xs text-text-muted"
+        <!-- Skills Grid -->
+        <div v-if="headerDone" class="space-y-8">
+            <div v-for="cat in categories" :key="cat.label">
+                <!-- Category Header -->
+                <div
+                    class="mb-3 text-xs font-bold uppercase tracking-wider"
+                    :class="`text-${cat.color}`"
+                >
+                    [{{ cat.label }}]
+                </div>
+
+                <!-- Skill Grid -->
+                <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+                    <div
+                        v-for="skill in cat.skills"
+                        :key="skill.name"
+                        class="group flex flex-col justify-between rounded-lg border border-border bg-surface p-4 transition-colors hover:border-border-light hover:bg-surface-light"
                     >
-                        <th class="px-4 py-2">PID</th>
-                        <th class="px-4 py-2">COMMAND</th>
-                        <th class="px-4 py-2">STATUS</th>
-                        <th class="px-4 py-2 text-right">YEAR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <template v-for="cat in categories" :key="cat.label">
-                        <!-- Category Header -->
-                        <tr
-                            class="border-b border-border/50 bg-surface-light/50"
-                        >
-                            <td
-                                colspan="4"
-                                class="px-4 py-1.5 text-xs font-bold uppercase tracking-wider"
-                                :class="`text-${cat.color}`"
+                        <span class="text-sm font-medium">{{ skill.name }}</span>
+                        <div class="mt-3 flex items-center justify-between">
+                            <span
+                                class="flex items-center gap-1.5 text-xs"
+                                :class="statusLabel(skill.status)"
                             >
-                                [{{ cat.label }}]
-                            </td>
-                        </tr>
-                        <!-- Skills -->
-                        <tr
-                            v-for="(skill, i) in cat.skills"
-                            :key="skill.name"
-                            class="border-b border-border/30 transition-colors hover:bg-surface-light/30"
-                        >
-                            <td class="px-4 py-2 text-text-muted">
-                                {{ String(i + 1).padStart(3, "0") }}
-                            </td>
-                            <td class="px-4 py-2">{{ skill.name }}</td>
-                            <td class="px-4 py-2">
-                                <span :class="statusColor(skill.status)">{{
-                                    skill.status
-                                }}</span>
-                            </td>
-                            <td class="px-4 py-2 text-right text-text-muted">
-                                {{ skill.year }}
-                            </td>
-                        </tr>
-                    </template>
-                </tbody>
-            </table>
+                                <span
+                                    class="inline-block h-1.5 w-1.5 rounded-full"
+                                    :class="statusColor(skill.status)"
+                                ></span>
+                                {{ skill.status }}
+                            </span>
+                            <span class="text-xs text-text-muted">{{
+                                skill.year
+                            }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </template>

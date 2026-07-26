@@ -1,3 +1,2 @@
-- [ ] Status on skill could be remove, of add another one placeholder there
 - [ ] Image on the hero section should be changed
 - [ ] Maybe we can add light and dark mode too
