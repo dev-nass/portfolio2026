@@ -28,7 +28,7 @@
   --color-surface2: #acb0be;
   --color-surface1: #bcc0cc;
   --color-surface0: #ccd0da;
-  --color-base: #eff1f5;
+  --color-bg-base: #eff1f5;
   --color-mantle: #e6e9ef;
   --color-crust: #dce0e8;
 
@@ -37,7 +37,7 @@
   --color-surface-light: #dce0e8;
   --color-border: #ccd0da;
   --color-border-light: #bcc0cc;
-  --color-text-muted: #9ca0b0;
+  --color-text-muted: #6c6f85;
 
   --font-mono: 'JetBrains Mono', 'Space Mono', 'IBM Plex Mono', monospace;
 }
@@ -67,7 +67,7 @@
   --color-surface2: #5b6078;
   --color-surface1: #494d64;
   --color-surface0: #363a4f;
-  --color-base: #24273a;
+  --color-bg-base: #24273a;
   --color-mantle: #1e2030;
   --color-crust: #181926;
 

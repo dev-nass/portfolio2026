@@ -55,25 +55,25 @@ const experiences = [
             <div
                 v-for="exp in experiences"
                 :key="exp.hash"
-                class="rounded-lg border border-border bg-surface p-5 font-mono text-sm transition-colors hover:border-green/20"
+                class="rounded-lg border border-border bg-surface p-5 font-mono text-base transition-colors hover:border-green/20"
             >
                 <!-- Commit header -->
                 <div
-                    class="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-xs"
+                    class="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm"
                 >
                     <span class="text-green">commit</span>
                     <span class="text-mauve">{{ exp.hash }}</span>
                     <span class="text-text-muted">(HEAD)</span>
                 </div>
-                <div class="mb-1 text-xs text-text-muted">
+                <div class="mb-1 text-sm text-text-muted">
                     Author: <span class="text-teal">{{ exp.company }}</span>
                 </div>
-                <div class="mb-3 text-xs text-text-muted">
+                <div class="mb-3 text-sm text-text-muted">
                     Date: <span class="text-peach">{{ exp.date }}</span>
                 </div>
 
                 <!-- Role -->
-                <div class="mb-3 pl-4 text-base font-bold text-text">
+                <div class="mb-3 pl-4 text-lg font-bold text-text">
                     {{ exp.role }}
                 </div>
 
@@ -82,7 +82,7 @@ const experiences = [
                     <li
                         v-for="(item, i) in exp.achievements"
                         :key="i"
-                        class="text-xs text-text-muted"
+                        class="text-sm text-text-muted"
                     >
                         <span class="text-green">-</span> {{ item }}
                     </li>

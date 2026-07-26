@@ -68,7 +68,7 @@ onUnmounted(() => {
             <!-- Terminal Content -->
             <div class="min-w-0 flex-1">
                 <TerminalWindow title="whoami — ~">
-                    <div class="space-y-4 font-mono text-sm">
+                    <div class="space-y-4 font-mono text-base">
                         <!-- Name -->
                         <div>
                             <span class="text-green">$</span>
@@ -76,7 +76,7 @@ onUnmounted(() => {
                             <div class="mt-1 pl-2">
                                 <GlitchText
                                     :text="name"
-                                    class="text-xl font-bold text-green glow-green md:text-2xl"
+                                    class="text-2xl font-bold text-green glow-green md:text-3xl"
                                 />
                             </div>
                         </div>
@@ -122,8 +122,8 @@ onUnmounted(() => {
                                 rel="noopener noreferrer"
                                 class="inline-flex items-center gap-1.5 text-text-muted transition-colors hover:text-green"
                             >
-                                <Github :size="14" />
-                                <span class="text-xs">$ open github</span>
+                                <Github :size="16" />
+                                <span class="text-sm">$ open github</span>
                             </a>
                             <a
                                 href="https://linkedin.com/"
@@ -131,15 +131,15 @@ onUnmounted(() => {
                                 rel="noopener noreferrer"
                                 class="inline-flex items-center gap-1.5 text-text-muted transition-colors hover:text-teal"
                             >
-                                <Linkedin :size="14" />
-                                <span class="text-xs">$ open linkedin</span>
+                                <Linkedin :size="16" />
+                                <span class="text-sm">$ open linkedin</span>
                             </a>
                             <a
                                 href="#"
                                 class="inline-flex items-center gap-1.5 text-text-muted transition-colors hover:text-peach"
                             >
-                                <FileText :size="14" />
-                                <span class="text-xs">$ cat resume.pdf</span>
+                                <FileText :size="16" />
+                                <span class="text-sm">$ cat resume.pdf</span>
                             </a>
                         </div>
                     </div>
@@ -150,7 +150,7 @@ onUnmounted(() => {
         <!-- Scroll indicator -->
         <div class="mt-20 flex justify-center lg:mt-28">
             <div class="flex flex-col items-center gap-2 text-text-muted">
-                <span class="text-xs">$ scroll down</span>
+                <span class="text-sm">$ scroll down</span>
                 <div class="flex flex-col items-center gap-1">
                     <div class="h-4 w-px bg-green/40" />
                     <div class="h-4 w-px animate-pulse bg-green/60" />

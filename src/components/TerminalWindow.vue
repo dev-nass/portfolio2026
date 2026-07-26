@@ -10,7 +10,7 @@ defineProps<{
       <span class="h-3 w-3 rounded-full bg-red/80" />
       <span class="h-3 w-3 rounded-full bg-peach/80" />
       <span class="h-3 w-3 rounded-full bg-green/80" />
-      <span class="ml-2 text-xs text-text-muted">{{ title }}</span>
+      <span class="ml-2 text-sm text-text-muted">{{ title }}</span>
     </div>
     <div class="p-4">
       <slot />

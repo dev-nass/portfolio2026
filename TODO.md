@@ -1,2 +1,0 @@
-- [ ] Image on the hero section should be changed
-- [ ] Maybe we can add light and dark mode too

@@ -72,7 +72,7 @@ function statusLabel(status: string) {
             <div v-for="cat in categories" :key="cat.label">
                 <!-- Category Header -->
                 <div
-                    class="mb-3 text-xs font-bold uppercase tracking-wider"
+                    class="mb-3 text-sm font-bold uppercase tracking-wider"
                     :class="`text-${cat.color}`"
                 >
                     [{{ cat.label }}]
@@ -85,10 +85,10 @@ function statusLabel(status: string) {
                         :key="skill.name"
                         class="group flex flex-col justify-between rounded-lg border border-border bg-surface p-4 transition-colors hover:border-border-light hover:bg-surface-light"
                     >
-                        <span class="text-sm font-medium">{{ skill.name }}</span>
+                        <span class="text-base font-medium text-text">{{ skill.name }}</span>
                         <div class="mt-3 flex items-center justify-between">
                             <span
-                                class="flex items-center gap-1.5 text-xs"
+                                class="flex items-center gap-1.5 text-sm"
                                 :class="statusLabel(skill.status)"
                             >
                                 <span
@@ -97,7 +97,7 @@ function statusLabel(status: string) {
                                 ></span>
                                 {{ skill.status }}
                             </span>
-                            <span class="text-xs text-text-muted">{{
+                            <span class="text-sm text-text-muted">{{
                                 skill.year
                             }}</span>
                         </div>

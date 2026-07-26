@@ -16,17 +16,17 @@ defineProps<{
       <span class="h-3 w-3 rounded-full bg-red/80" />
       <span class="h-3 w-3 rounded-full bg-peach/80" />
       <span class="h-3 w-3 rounded-full bg-green/80" />
-      <span class="ml-2 text-xs text-text-muted">{{ name }} — ~/projects</span>
+      <span class="ml-2 text-sm text-text-muted">{{ name }} — ~/projects</span>
     </div>
 
     <div class="flex flex-col gap-3 p-4">
-      <p class="text-sm text-text-muted">{{ description }}</p>
+      <p class="text-base text-text-muted">{{ description }}</p>
 
       <div class="flex flex-wrap gap-1.5">
         <span
           v-for="t in tech"
           :key="t"
-          class="rounded bg-green/10 px-2 py-0.5 text-xs text-green"
+          class="rounded bg-green/10 px-2 py-0.5 text-sm text-green"
         >
           {{ t }}
         </span>
@@ -38,9 +38,9 @@ defineProps<{
           :href="github"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-xs text-text-muted transition-colors hover:text-green"
+          class="inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-green"
         >
-          <Github :size="12" />
+          <Github :size="14" />
           $ open github
         </a>
         <a
@@ -48,9 +48,9 @@ defineProps<{
           :href="live"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-xs text-text-muted transition-colors hover:text-teal"
+          class="inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-teal"
         >
-          <ExternalLink :size="12" />
+          <ExternalLink :size="14" />
           $ open live
         </a>
       </div>

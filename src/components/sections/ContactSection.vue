@@ -34,53 +34,53 @@ function handleSubmit() {
 
     <div v-if="headerDone" class="grid gap-8 md:grid-cols-2">
       <!-- Terminal Form -->
-      <div class="rounded-lg border border-border bg-surface p-5 font-mono text-sm">
+      <div class="rounded-lg border border-border bg-surface p-5 font-mono text-base">
         <template v-if="!submitted">
           <!-- Name -->
           <div class="mb-4">
-            <label class="mb-1 block text-xs text-text-muted">
+            <label class="mb-1 block text-sm text-text-muted">
               <span class="text-green">$</span> echo "name" &gt; name
             </label>
             <input
               v-model="name"
               type="text"
               placeholder="Your Name"
-              class="w-full rounded border border-border bg-bg px-3 py-2 text-sm text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50"
+              class="w-full rounded border border-border bg-bg px-3 py-2 text-base text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50"
             />
           </div>
 
           <!-- Email -->
           <div class="mb-4">
-            <label class="mb-1 block text-xs text-text-muted">
+            <label class="mb-1 block text-sm text-text-muted">
               <span class="text-green">$</span> echo "email" &gt; email
             </label>
             <input
               v-model="email"
               type="email"
               placeholder="your@email.com"
-              class="w-full rounded border border-border bg-bg px-3 py-2 text-sm text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50"
+              class="w-full rounded border border-border bg-bg px-3 py-2 text-base text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50"
             />
           </div>
 
           <!-- Message -->
           <div class="mb-4">
-            <label class="mb-1 block text-xs text-text-muted">
+            <label class="mb-1 block text-sm text-text-muted">
               <span class="text-green">$</span> echo "message" &gt; message
             </label>
             <textarea
               v-model="message"
               rows="4"
               placeholder="Your message..."
-              class="w-full resize-none rounded border border-border bg-bg px-3 py-2 text-sm text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50"
+              class="w-full resize-none rounded border border-border bg-bg px-3 py-2 text-base text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50"
             />
           </div>
 
           <!-- Submit -->
           <button
-            class="inline-flex items-center gap-2 rounded border border-green/30 bg-green/10 px-4 py-2 text-sm text-green transition-all hover:bg-green/20 hover:shadow-[0_0_10px_var(--color-green)]"
+            class="inline-flex items-center gap-2 rounded border border-green/30 bg-green/10 px-4 py-2 text-base text-green transition-all hover:bg-green/20 hover:shadow-[0_0_10px_var(--color-green)]"
             @click="handleSubmit"
           >
-            <Send :size="14" />
+            <Send :size="16" />
             $ cat name email message | send
           </button>
         </template>
@@ -88,7 +88,7 @@ function handleSubmit() {
         <!-- Success -->
         <div v-else class="flex flex-col items-center gap-3 py-8 text-center">
           <div class="text-green">Message sent successfully!</div>
-          <div class="text-xs text-text-muted">
+          <div class="text-sm text-text-muted">
             <span class="text-green">$</span> echo "Thank you, {{ name }}! I'll get back to you soon."
           </div>
         </div>
@@ -97,43 +97,43 @@ function handleSubmit() {
       <!-- Social Links -->
       <div class="flex flex-col gap-4">
         <div class="rounded-lg border border-border bg-surface p-5">
-          <h3 class="mb-3 text-sm font-bold text-text">Find me online</h3>
+          <h3 class="mb-3 text-base font-bold text-text">Find me online</h3>
           <div class="space-y-3">
             <a
               href="https://github.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-3 text-sm text-text-muted transition-colors hover:text-green"
+              class="flex items-center gap-3 text-base text-text-muted transition-colors hover:text-green"
             >
-              <Github :size="16" />
+              <Github :size="18" />
               <span>$ open github</span>
             </a>
             <a
               href="https://linkedin.com/"
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-3 text-sm text-text-muted transition-colors hover:text-teal"
+              class="flex items-center gap-3 text-base text-text-muted transition-colors hover:text-teal"
             >
-              <Linkedin :size="16" />
+              <Linkedin :size="18" />
               <span>$ open linkedin</span>
             </a>
             <a
               href="mailto:hello@example.com"
-              class="flex items-center gap-3 text-sm text-text-muted transition-colors hover:text-peach"
+              class="flex items-center gap-3 text-base text-text-muted transition-colors hover:text-peach"
             >
-              <Mail :size="16" />
+              <Mail :size="18" />
               <span>$ mail hello@example.com</span>
             </a>
           </div>
         </div>
 
         <div class="rounded-lg border border-border bg-surface p-5">
-          <h3 class="mb-3 text-sm font-bold text-text">Availability</h3>
-          <div class="flex items-center gap-2 text-sm">
+          <h3 class="mb-3 text-base font-bold text-text">Availability</h3>
+          <div class="flex items-center gap-2 text-base">
             <span class="h-2 w-2 rounded-full bg-green animate-pulse" />
             <span class="text-green">Open to opportunities</span>
           </div>
-          <p class="mt-2 text-xs text-text-muted">
+          <p class="mt-2 text-sm text-text-muted">
             Currently available for freelance work and full-time positions.
           </p>
         </div>
