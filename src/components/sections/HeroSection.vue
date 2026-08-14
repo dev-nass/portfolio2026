@@ -135,8 +135,9 @@ onUnmounted(() => {
                                 <span class="text-sm">$ open linkedin</span>
                             </a>
                             <a
-                                href="#"
-                                class="inline-flex items-center gap-1.5 text-text-muted transition-colors hover:text-peach"
+                                href="/Jonas-Macawile-Resume.pdf"
+                                download="Jonas-Macawile-Resume.pdf"
+                                class="inline-flex items-center gap-1.5 font-semibold text-peach underline decoration-peach/50 underline-offset-4 transition-colors hover:text-green hover:decoration-green/50"
                             >
                                 <FileText :size="16" />
                                 <span class="text-sm">$ cat resume.pdf</span>
