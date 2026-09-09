@@ -1,13 +1,8 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import TypeWriter from "@/components/TypeWriter.vue";
-
-const headerDone = ref(false);
-
 const categories = [
     {
         label: "Languages",
-        color: "green",
+        color: "text-green",
         skills: [
             { name: "TypeScript", status: "active", year: 2026 },
             { name: "Lua", status: "idle", year: 2025 },
@@ -20,7 +15,7 @@ const categories = [
     },
     {
         label: "Frameworks",
-        color: "teal",
+        color: "text-teal",
         skills: [
             { name: "Vue 3", status: "active", year: 2025 },
             { name: "Laravel 13", status: "active", year: 2025 },
@@ -30,11 +25,23 @@ const categories = [
     },
     {
         label: "Tools",
-        color: "peach",
+        color: "text-peach",
         skills: [
             { name: "Vim & Neovim", status: "active", year: 2025 },
             { name: "Linux", status: "active", year: 2025 },
             { name: "Git & GitHub", status: "active", year: 2023 },
+            { name: "Obsidian", status: "active", year: 2024 },
+            { name: "Jira", status: "idle", year: 2025 },
+        ],
+    },
+    {
+        label: "AI & Agents",
+        color: "text-mauve",
+        skills: [
+            { name: "Hermes Agent", status: "active", year: 2026 },
+            { name: "OpenCode", status: "active", year: 2026 },
+            { name: "Anthropic", status: "active", year: 2026 },
+            { name: "OpenAI", status: "active", year: 2026 },
         ],
     },
 ];
@@ -52,43 +59,44 @@ function statusLabel(status: string) {
 
 <template>
     <section id="skills" class="mx-auto max-w-5xl px-4 py-12 md:py-20 lg:py-28">
-        <!-- Header -->
-        <div class="mb-10">
-            <span class="text-green">$</span>
-            <span class="text-text-muted"> htop --filter=</span
-            ><span class="text-green font-bold">skills</span>
-            <div class="mt-1 text-peach">
-                <TypeWriter
-                    text="PID   USER     PRI  NI  VIRT  RES  SHR  S  CPU%  MEM%  COMMAND"
-                    :speed="15"
-                    :delay="300"
-                    @complete="headerDone = true"
-                />
-            </div>
+        <!-- Header - includes AI -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold tracking-tight text-text md:text-3xl">
+                Skills & Expertise
+            </h2>
+            <p class="mt-2 max-w-2xl text-sm leading-relaxed text-text-muted">
+                Languages, frameworks, everyday tools, and AI agents — including
+                Hermes Agent, OpenCode, Anthropic, and OpenAI — grouped for
+                quick scanning.
+            </p>
         </div>
 
-        <!-- Skills Grid -->
-        <div v-if="headerDone" class="space-y-8">
+        <!-- Skills Grid - no typewriter gate -->
+        <div class="space-y-8">
             <div v-for="cat in categories" :key="cat.label">
                 <!-- Category Header -->
                 <div
                     class="mb-3 text-sm font-bold uppercase tracking-wider"
-                    :class="`text-${cat.color}`"
+                    :class="cat.color"
                 >
-                    [{{ cat.label }}]
+                    {{ cat.label }}
                 </div>
 
                 <!-- Skill Grid -->
-                <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+                <div
+                    class="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4"
+                >
                     <div
                         v-for="skill in cat.skills"
                         :key="skill.name"
                         class="group flex flex-col justify-between rounded-lg border border-border bg-surface p-4 transition-colors hover:border-border-light hover:bg-surface-light"
                     >
-                        <span class="text-base font-medium text-text">{{ skill.name }}</span>
+                        <span class="text-sm font-medium text-text">{{
+                            skill.name
+                        }}</span>
                         <div class="mt-3 flex items-center justify-between">
                             <span
-                                class="flex items-center gap-1.5 text-sm"
+                                class="flex items-center gap-1.5 text-xs"
                                 :class="statusLabel(skill.status)"
                             >
                                 <span
@@ -97,7 +105,7 @@ function statusLabel(status: string) {
                                 ></span>
                                 {{ skill.status }}
                             </span>
-                            <span class="text-sm text-text-muted">{{
+                            <span class="text-xs text-text-muted">{{
                                 skill.year
                             }}</span>
                         </div>
