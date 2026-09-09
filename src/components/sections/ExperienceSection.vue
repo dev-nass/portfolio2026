@@ -1,15 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import TypeWriter from "@/components/TypeWriter.vue";
-
-const headerDone = ref(false);
-
 const experiences = [
     {
-        hash: "a3f7b2c",
+        id: "capstone",
         company: "Capstone",
         role: "Full-Stack Developer",
-        date: "Dec, 2025 — Present",
+        date: "Dec 2025 — Present",
         achievements: [
             "Built client websites with Laravel, Vue and Tailwind",
             "Developed custom 2D Mapping and REST API integrations",
@@ -17,10 +12,10 @@ const experiences = [
         ],
     },
     {
-        hash: "e9d1f4a",
+        id: "pawpal",
         company: "PawPal",
         role: "Lead Arduino Developer",
-        date: "Nov, 2025 — Dec, 2025",
+        date: "Nov 2025 — Dec 2025",
         achievements: [
             "Implemented a dog feeder that detects their proximity",
             "Collaborated with design team to implement the hardware correctly",
@@ -35,56 +30,35 @@ const experiences = [
         id="experience"
         class="mx-auto max-w-5xl px-4 py-12 md:py-20 lg:py-28"
     >
-        <!-- Header -->
-        <div class="mb-10">
-            <span class="text-green">$</span>
-            <span class="text-text-muted"> git log --oneline --</span
-            ><span class="text-green font-bold">experience</span>
-            <div class="mt-1 text-peach">
-                <TypeWriter
-                    text="commit 3 entries — sorted by date"
-                    :speed="20"
-                    :delay="300"
-                    @complete="headerDone = true"
-                />
-            </div>
+        <!-- Header - clean -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold tracking-tight text-text md:text-3xl">Experience</h2>
+            <p class="mt-2 text-sm leading-relaxed text-text-muted">
+                Roles and projects in chronological order.
+            </p>
         </div>
 
-        <!-- Timeline -->
-        <div v-if="headerDone" class="space-y-6">
+        <!-- Timeline - no git log metaphor -->
+        <div class="space-y-4">
             <div
                 v-for="exp in experiences"
-                :key="exp.hash"
-                class="rounded-lg border border-border bg-surface p-5 font-mono text-base transition-colors hover:border-green/20"
+                :key="exp.id"
+                class="border border-border bg-surface p-6 transition-colors hover:border-border-light"
             >
-                <!-- Commit header -->
-                <div
-                    class="mb-3 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-sm"
-                >
-                    <span class="text-green">commit</span>
-                    <span class="text-mauve">{{ exp.hash }}</span>
-                    <span class="text-text-muted">(HEAD)</span>
+                <div class="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 class="text-base font-bold text-text">{{ exp.role }}</h3>
+                    <span class="text-xs text-text-muted">{{ exp.date }}</span>
                 </div>
-                <div class="mb-1 text-sm text-text-muted">
-                    Author: <span class="text-teal">{{ exp.company }}</span>
-                </div>
-                <div class="mb-3 text-sm text-text-muted">
-                    Date: <span class="text-peach">{{ exp.date }}</span>
-                </div>
+                <div class="mt-1 text-sm font-medium text-teal">{{ exp.company }}</div>
 
-                <!-- Role -->
-                <div class="mb-3 pl-4 text-lg font-bold text-text">
-                    {{ exp.role }}
-                </div>
-
-                <!-- Achievements -->
-                <ul class="space-y-1 pl-4">
+                <ul class="mt-4 space-y-2">
                     <li
                         v-for="(item, i) in exp.achievements"
                         :key="i"
-                        class="text-sm text-text-muted"
+                        class="flex gap-2 text-sm leading-relaxed text-text-muted"
                     >
-                        <span class="text-green">-</span> {{ item }}
+                        <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green"></span>
+                        <span>{{ item }}</span>
                     </li>
                 </ul>
             </div>

@@ -5,14 +5,11 @@ defineProps<{
 </script>
 
 <template>
-  <div class="overflow-hidden rounded-lg border border-border bg-surface">
-    <div class="flex items-center gap-2 border-b border-border bg-surface-light px-4 py-2.5">
-      <span class="h-3 w-3 rounded-full bg-red/80" />
-      <span class="h-3 w-3 rounded-full bg-peach/80" />
-      <span class="h-3 w-3 rounded-full bg-green/80" />
-      <span class="ml-2 text-sm text-text-muted">{{ title }}</span>
+  <div class="overflow-hidden border border-border bg-surface">
+    <div class="border-b border-border bg-mantle px-4 py-3">
+      <span class="text-sm font-medium text-text">{{ title }}</span>
     </div>
-    <div class="p-4">
+    <div class="p-5">
       <slot />
     </div>
   </div>

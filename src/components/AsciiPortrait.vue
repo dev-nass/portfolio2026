@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const props = withDefaults(defineProps<{
   src?: string
@@ -12,9 +12,6 @@ const props = withDefaults(defineProps<{
 
 const ASCII_CHARS = ' .·•●'
 const asciiOutput = ref('')
-const isGlitching = ref(false)
-let originalLines: string[] = []
-let glitchInterval: ReturnType<typeof setInterval> | null = null
 
 function getChar(brightness: number): string {
   const idx = Math.floor((brightness / 255) * (ASCII_CHARS.length - 1))
@@ -73,38 +70,11 @@ function renderImage(img: HTMLImageElement) {
     lines.push(row)
   }
 
-  originalLines = lines
   asciiOutput.value = lines.join('\n')
-  startGlitch()
-}
-
-function startGlitch() {
-  glitchInterval = setInterval(() => {
-    if (originalLines.length === 0) return
-    isGlitching.value = true
-
-    const glitched = originalLines.map(line => {
-      const arr = line.split('')
-      const glitchCount = Math.ceil(arr.length * 0.08)
-      for (let i = 0; i < glitchCount; i++) {
-        const idx = Math.floor(Math.random() * arr.length)
-        arr[idx] = ASCII_CHARS[Math.floor(Math.random() * ASCII_CHARS.length)]
-      }
-      return arr.join('')
-    })
-
-    asciiOutput.value = glitched.join('\n')
-
-    setTimeout(() => {
-      isGlitching.value = false
-      asciiOutput.value = originalLines.join('\n')
-    }, 150)
-  }, 4000 + Math.random() * 3000)
 }
 
 onMounted(() => {
   const lines = generatePlaceholder()
-  originalLines = lines
   asciiOutput.value = lines.join('\n')
 
   if (props.src) {
@@ -114,17 +84,12 @@ onMounted(() => {
     img.src = props.src
   }
 })
-
-onUnmounted(() => {
-  if (glitchInterval) clearInterval(glitchInterval)
-})
 </script>
 
 <template>
   <div class="relative">
     <pre
       class="select-none text-[3px] leading-[3.5px] text-green sm:text-[4px] sm:leading-[4.5px] md:text-[5px] md:leading-[5.5px] lg:text-[6px] lg:leading-[6.5px]"
-      :class="{ 'opacity-80': isGlitching }"
       aria-label="ASCII art portrait"
     >{{ asciiOutput }}</pre>
     <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent" />
