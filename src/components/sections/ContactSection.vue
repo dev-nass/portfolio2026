@@ -26,7 +26,7 @@ function handleSubmit() {
 
     <div class="grid gap-8 md:grid-cols-2">
       <!-- Form -->
-      <div class="rounded-xl border border-border bg-surface p-6">
+      <div class="border border-border bg-surface p-6">
         <template v-if="!submitted">
           <!-- Name -->
           <div class="mb-4">
@@ -38,7 +38,7 @@ function handleSubmit() {
               v-model="name"
               type="text"
               placeholder="Your name"
-              class="w-full rounded-md border border-border bg-bg px-3 py-2.5 text-sm text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50 focus:ring-1 focus:ring-green/20"
+              class="w-full border border-border bg-bg px-3 py-2.5 text-sm text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50 focus:ring-1 focus:ring-green/20"
             />
           </div>
 
@@ -52,7 +52,7 @@ function handleSubmit() {
               v-model="email"
               type="email"
               placeholder="your@email.com"
-              class="w-full rounded-md border border-border bg-bg px-3 py-2.5 text-sm text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50 focus:ring-1 focus:ring-green/20"
+              class="w-full border border-border bg-bg px-3 py-2.5 text-sm text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50 focus:ring-1 focus:ring-green/20"
             />
           </div>
 
@@ -66,13 +66,13 @@ function handleSubmit() {
               v-model="message"
               rows="4"
               placeholder="Your message..."
-              class="w-full resize-none rounded-md border border-border bg-bg px-3 py-2.5 text-sm text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50 focus:ring-1 focus:ring-green/20"
+              class="w-full resize-none border border-border bg-bg px-3 py-2.5 text-sm text-text outline-none transition-colors placeholder:text-text-muted focus:border-green/50 focus:ring-1 focus:ring-green/20"
             />
           </div>
 
           <!-- Submit -->
           <button
-            class="inline-flex w-full items-center justify-center gap-2 rounded-md bg-green px-4 py-2.5 text-sm font-medium text-crust transition-colors hover:bg-green/90"
+            class="inline-flex w-full items-center justify-center gap-2 bg-green px-4 py-2.5 text-sm font-medium text-crust transition-colors hover:bg-green/90"
             @click="handleSubmit"
           >
             <Send :size="16" />
@@ -92,7 +92,7 @@ function handleSubmit() {
 
       <!-- Social Links -->
       <div class="flex flex-col gap-4">
-        <div class="rounded-xl border border-border bg-surface p-6">
+        <div class="border border-border bg-surface p-6">
           <h3 class="mb-3 text-sm font-bold text-text">Find me online</h3>
           <div class="space-y-3">
             <a
@@ -123,7 +123,7 @@ function handleSubmit() {
           </div>
         </div>
 
-        <div class="rounded-xl border border-border bg-surface p-6">
+        <div class="border border-border bg-surface p-6">
           <h3 class="mb-3 text-sm font-bold text-text">Availability</h3>
           <div class="flex items-center gap-2 text-sm">
             <span class="h-2 w-2 rounded-full bg-green animate-pulse" />

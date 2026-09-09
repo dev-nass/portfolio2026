@@ -89,7 +89,7 @@ function statusLabel(status: string) {
                     <div
                         v-for="skill in cat.skills"
                         :key="skill.name"
-                        class="group flex flex-col justify-between rounded-lg border border-border bg-surface p-4 transition-colors hover:border-border-light hover:bg-surface-light"
+                        class="group flex flex-col justify-between border border-border bg-surface p-4 transition-colors hover:border-border-light hover:bg-surface-light"
                     >
                         <span class="text-sm font-medium text-text">{{
                             skill.name

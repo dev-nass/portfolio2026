@@ -39,7 +39,8 @@
   --color-border-light: #bcc0cc;
   --color-text-muted: #6c6f85;
 
-  --font-mono: 'JetBrains Mono', 'Space Mono', 'IBM Plex Mono', monospace;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'JetBrains Mono', monospace;
 }
 
 :root.dark {
@@ -121,51 +122,18 @@
 }
 
 @layer components {
-  .glow-green {
-    text-shadow: 0 0 10px var(--color-green), 0 0 20px color-mix(in srgb, var(--color-green) 30%, transparent);
-  }
-
-  .glow-peach {
-    text-shadow: 0 0 10px var(--color-peach), 0 0 20px color-mix(in srgb, var(--color-peach) 30%, transparent);
-  }
-
-  .glow-teal {
-    text-shadow: 0 0 10px var(--color-teal), 0 0 20px color-mix(in srgb, var(--color-teal) 30%, transparent);
-  }
-
-  .glow-mauve {
-    text-shadow: 0 0 10px var(--color-mauve), 0 0 20px color-mix(in srgb, var(--color-mauve) 30%, transparent);
-  }
-
-  .glow-blue {
-    text-shadow: 0 0 10px var(--color-blue), 0 0 20px color-mix(in srgb, var(--color-blue) 30%, transparent);
-  }
-
+  /* kept for backwards compat but neutralized for readability */
+  .glow-green,
+  .glow-peach,
+  .glow-teal,
+  .glow-mauve,
+  .glow-blue,
   .glow-lavender {
-    text-shadow: 0 0 10px var(--color-lavender), 0 0 20px color-mix(in srgb, var(--color-lavender) 30%, transparent);
+    text-shadow: none;
   }
 
   .terminal-prompt::before {
-    content: '$ ';
-    color: var(--color-green);
-  }
-
-  @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-  }
-
-  .cursor-blink {
-    animation: blink 1s step-end infinite;
-  }
-
-  @keyframes glitch {
-    0% { transform: translate(0); }
-    20% { transform: translate(-2px, 2px); }
-    40% { transform: translate(-2px, -2px); }
-    60% { transform: translate(2px, 2px); }
-    80% { transform: translate(2px, -2px); }
-    100% { transform: translate(0); }
+    content: none;
   }
 
   @keyframes scanline {

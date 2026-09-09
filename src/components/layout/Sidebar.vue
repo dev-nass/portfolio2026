@@ -53,7 +53,7 @@ onUnmounted(() => {
     <div class="flex items-center gap-2">
       <ThemeToggle />
       <button
-        class="flex h-8 w-8 items-center justify-center rounded-md text-text-muted hover:text-text"
+        class="flex h-8 w-8 items-center justify-center text-text-muted hover:text-text"
         :aria-label="mobileOpen ? 'Close menu' : 'Open menu'"
         :aria-expanded="mobileOpen"
         @click="mobileOpen = !mobileOpen"
@@ -85,7 +85,7 @@ onUnmounted(() => {
             v-for="link in links"
             :key="link.href"
             :href="link.href"
-            class="flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors"
+            class="flex items-center gap-3 px-3 py-2.5 text-sm transition-colors"
             :class="activeId === link.href.slice(1) ? 'bg-mantle text-text' : 'text-text-muted hover:bg-mantle hover:text-text'"
             @click.prevent="scrollTo(link.href)"
           >
@@ -124,7 +124,7 @@ onUnmounted(() => {
           v-for="link in links"
           :key="link.href"
           :href="link.href"
-          class="flex items-center gap-3 rounded-md px-2.5 py-2.5 text-sm transition-colors"
+          class="flex items-center gap-3 px-2.5 py-2.5 text-sm transition-colors"
           :class="activeId === link.href.slice(1) ? 'bg-mantle text-text' : 'text-text-muted hover:bg-mantle hover:text-text'"
           :aria-current="activeId === link.href.slice(1) ? 'page' : undefined"
           @click.prevent="scrollTo(link.href)"

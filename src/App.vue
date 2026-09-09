@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NavBar from '@/components/layout/NavBar.vue'
+import Sidebar from '@/components/layout/Sidebar.vue'
 import Footer from '@/components/layout/Footer.vue'
 import SectionDivider from '@/components/SectionDivider.vue'
 import HeroSection from '@/components/sections/HeroSection.vue'
@@ -10,20 +10,22 @@ import ContactSection from '@/components/sections/ContactSection.vue'
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col">
+  <div class="min-h-screen lg:flex">
     <div class="scanline-overlay" />
-    <NavBar />
-    <main class="flex-1">
-      <HeroSection />
-      <SectionDivider />
-      <ProjectsSection />
-      <SectionDivider />
-      <SkillsSection />
-      <SectionDivider />
-      <ExperienceSection />
-      <SectionDivider />
-      <ContactSection />
-    </main>
-    <Footer />
+    <Sidebar />
+    <div class="flex min-w-0 flex-1 flex-col">
+      <main class="flex-1">
+        <HeroSection />
+        <SectionDivider />
+        <ProjectsSection />
+        <SectionDivider />
+        <SkillsSection />
+        <SectionDivider />
+        <ExperienceSection />
+        <SectionDivider />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
   </div>
 </template>

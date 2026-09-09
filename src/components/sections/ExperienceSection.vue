@@ -43,7 +43,7 @@ const experiences = [
             <div
                 v-for="exp in experiences"
                 :key="exp.id"
-                class="rounded-xl border border-border bg-surface p-6 transition-colors hover:border-border-light"
+                class="border border-border bg-surface p-6 transition-colors hover:border-border-light"
             >
                 <div class="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 class="text-base font-bold text-text">{{ exp.role }}</h3>

@@ -11,47 +11,44 @@ defineProps<{
 </script>
 
 <template>
-  <div class="project-card group overflow-hidden rounded-lg border border-border bg-surface transition-all duration-300 hover:border-green/30 hover:shadow-[0_0_15px_var(--color-green)]">
-    <div class="flex items-center gap-2 border-b border-border bg-surface-light px-4 py-2.5">
-      <span class="h-3 w-3 rounded-full bg-red/80" />
-      <span class="h-3 w-3 rounded-full bg-peach/80" />
-      <span class="h-3 w-3 rounded-full bg-green/80" />
-      <span class="ml-2 text-sm text-text-muted">{{ name }} — ~/projects</span>
+  <div class="project-card group flex flex-col overflow-hidden border border-border bg-surface transition-all duration-300 hover:border-green/30 hover:shadow-[0_0_15px_var(--color-green)]">
+    <div class="border-b border-border bg-mantle px-4 py-3">
+      <span class="text-[15px] font-bold tracking-tight text-text">{{ name }}</span>
     </div>
 
-    <div class="flex flex-col gap-3 p-4">
-      <p class="text-base text-text-muted">{{ description }}</p>
+    <div class="flex flex-1 flex-col gap-3 p-5">
+      <p class="text-sm leading-relaxed text-subtext1">{{ description }}</p>
 
       <div class="flex flex-wrap gap-1.5">
         <span
           v-for="t in tech"
           :key="t"
-          class="rounded bg-green/10 px-2 py-0.5 text-sm text-green"
+          class="bg-green/10 px-2 py-1 text-xs font-medium text-green"
         >
           {{ t }}
         </span>
       </div>
 
-      <div class="flex gap-3 pt-1">
+      <div class="mt-auto flex gap-3 pt-2">
         <a
           v-if="github"
           :href="github"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-green"
+          class="inline-flex items-center gap-1.5 text-xs text-text-muted transition-colors hover:text-text"
         >
           <Github :size="14" />
-          $ open github
+          GitHub
         </a>
         <a
           v-if="live"
           :href="live"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1 text-sm text-text-muted transition-colors hover:text-teal"
+          class="inline-flex items-center gap-1.5 text-xs text-text-muted transition-colors hover:text-text"
         >
           <ExternalLink :size="14" />
-          $ open live
+          Live demo
         </a>
       </div>
     </div>
